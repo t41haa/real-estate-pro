@@ -7,34 +7,28 @@ const propertyListings = [
     title: "Luxury Villa in Mumbai",
     price: "₹2.3 Crore",
     location: "Juhu, Mumbai",
-    image: "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+    image: "https://images.unsplash.com/photo-1505692794403-9a048e2c58e7?auto=format&fit=crop&w=800&q=80", // Real room image
     beds: 4,
     baths: 3,
-    area: "5800 sq ft",
-    desc: "Pool, garden, modern design, sea view."
   },
   {
     id: 2,
     title: "Highrise Apartment",
     price: "₹1.1 Crore",
     location: "MG Road, Bangalore",
-    image: "https://images.unsplash.com/photo-1542089363-7b7a5e43b07e",
+    image: "https://images.unsplash.com/photo-1598928506312-5fb6e32ff223?auto=format&fit=crop&w=800&q=80",
     beds: 3,
     baths: 2,
-    area: "2150 sq ft",
-    desc: "Gym, security, city view, parking included."
   },
   {
     id: 3,
     title: "Family Home in Pune",
     price: "₹78 Lakh",
     location: "Viman Nagar, Pune",
-    image: "https://images.unsplash.com/photo-1464983953574-0892a716854b",
+    image: "https://images.unsplash.com/photo-1618221502829-d51a6ec90b0d?auto=format&fit=crop&w=800&q=80",
     beds: 2,
     baths: 2,
-    area: "1430 sq ft",
-    desc: "Calm neighborhood, nearby schools."
-  }
+  },
 ];
 
 export default function ListingsPage() {
