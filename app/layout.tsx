@@ -1,8 +1,13 @@
+import "./globals.css";
+
 "use client";
 import React, { useState } from "react";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState(false); // Mock user login state
+  // ... rest of your layout code ...
+}
+
 
   return (
     <html lang="en" className="scroll-smooth">
