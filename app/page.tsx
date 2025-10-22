@@ -7,7 +7,7 @@ const featuredListings = [
     title: "Luxury Villa in Mumbai",
     price: "₹2.3 Crore",
     location: "Juhu, Mumbai",
-    image: "https://images.unsplash.com/photo-1505692794403-9a048e2c58e7?auto=format&fit=crop&w=800&q=80", // Real room image
+    image: "https://is1-3.housingcdn.com/01c16c28/1cd938ae2862861c04d70be84e386120/v0/medium/3_bhk_apartment-for-rent-juhu-Mumbai-hall.jpg", // Real room image
     beds: 4,
     baths: 3,
   },
