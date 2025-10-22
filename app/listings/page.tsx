@@ -7,9 +7,11 @@ const propertyListings = [
     title: "Luxury Villa in Mumbai",
     price: "₹2.3 Crore",
     location: "Juhu, Mumbai",
-    image: "https://is1-3.housingcdn.com/01c16c28/1cd938ae2862861c04d70be84e386120/v0/medium/3_bhk_apartment-for-rent-juhu-Mumbai-hall.jpg", // Real room image
+    image: "https://is1-3.housingcdn.com/01c16c28/1cd938ae2862861c04d70be84e386120/v0/medium/3_bhk_apartment-for-rent-juhu-Mumbai-hall.jpg",
     beds: 4,
     baths: 3,
+    area: "5800 sq ft",
+    desc: "Pool, garden, modern design, sea view."
   },
   {
     id: 2,
@@ -19,6 +21,8 @@ const propertyListings = [
     image: "https://images.unsplash.com/photo-1598928506312-5fb6e32ff223?auto=format&fit=crop&w=800&q=80",
     beds: 3,
     baths: 2,
+    area: "2150 sq ft",
+    desc: "Gym, security, city view, parking included."
   },
   {
     id: 3,
@@ -28,38 +32,50 @@ const propertyListings = [
     image: "https://images.unsplash.com/photo-1618221502829-d51a6ec90b0d?auto=format&fit=crop&w=800&q=80",
     beds: 2,
     baths: 2,
-  },
+    area: "1430 sq ft",
+    desc: "Calm neighborhood, nearby schools."
+  }
 ];
 
 export default function ListingsPage() {
   return (
-    <main className="min-h-screen bg-gray-50 font-sans">
-      <section className="max-w-7xl mx-auto p-4 md:p-8">
-        <h1 className="text-3xl font-extrabold text-center text-blue-700 mb-10">
+    <main style={{ fontFamily: "Arial, Helvetica, sans-serif", minHeight: "100vh", background: "#F5F7FF" }}>
+      <section style={{ maxWidth: 1200, margin: "40px auto", padding: "0 16px" }}>
+        <h1 style={{
+          fontSize: "2rem", fontWeight: 800, color: "#3056D3", textAlign: "center", marginBottom: 36
+        }}>
           Browse All Properties
         </h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {propertyListings.map((property) => (
-            <div
-              key={property.id}
-              className="bg-white rounded-xl shadow-md overflow-hidden flex flex-col"
-            >
+        <div style={{
+          display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))", gap: "32px"
+        }}>
+          {propertyListings.map((property, idx) => (
+            <div key={idx} style={{
+              background: "#fff", borderRadius: "1.2rem", boxShadow: "0 6px 20px rgba(32,64,128,0.11)",
+              overflow: "hidden"
+            }}>
               <img
                 src={property.image}
                 alt={property.title}
-                className="h-48 w-full object-cover rounded-t-xl"
+                style={{ width: "100%", height: "190px", objectFit: "cover", borderTopLeftRadius: "1.2rem", borderTopRightRadius: "1.2rem" }}
               />
-              <div className="p-6 flex flex-col flex-grow">
-                <h2 className="text-xl font-semibold text-blue-700">{property.title}</h2>
-                <p className="text-blue-600 font-bold mt-1">{property.price}</p>
-                <p className="text-gray-600 mt-1">{property.location}</p>
-                <p className="mt-2 text-gray-700">
-                  Bedrooms: <span className="font-semibold">{property.beds}</span> | Bathrooms: <span className="font-semibold">{property.baths}</span> | Area: <span className="font-semibold">{property.area}</span>
+              <div style={{ padding: "22px 19px 5px 19px" }}>
+                <h2 style={{ fontSize: "1.18rem", fontWeight: 600, marginTop: 0 }}>
+                  {property.title}
+                </h2>
+                <p style={{ color: "#3056D3", fontWeight: "bold" }}>{property.price}</p>
+                <p style={{ color: "#666", fontSize: "1rem", margin: "6px 0" }}>{property.location}</p>
+                <p style={{ color: "#222", fontSize: "0.97rem", margin: "7px 0" }}>
+                  Bedrooms: {property.beds} &nbsp;| Bathrooms: {property.baths} &nbsp;| Area: {property.area}
                 </p>
-                <p className="text-gray-600 mt-3">{property.desc}</p>
+                <p style={{ color: "#444", fontSize: "0.99rem" }}>{property.desc}</p>
                 <a
                   href={`/property/${property.id}`}
-                  className="mt-auto inline-block bg-blue-700 text-white rounded-md px-5 py-2 text-center font-semibold hover:bg-blue-600 transition mt-6"
+                  style={{
+                    background: "#3056D3", color: "#fff", borderRadius: "0.65rem",
+                    padding: "8px 22px", textDecoration: "none", fontWeight: "bold",
+                    display: "inline-block", margin: "18px 0 10px 0"
+                  }}
                 >
                   View Details
                 </a>
