@@ -3,6 +3,7 @@ import React from "react";
 
 const featuredListings = [
   {
+    id: 1,
     title: "Luxury Villa in Mumbai",
     price: "₹2.3 Crore",
     location: "Juhu, Mumbai",
@@ -11,6 +12,7 @@ const featuredListings = [
     baths: 3,
   },
   {
+    id: 2,
     title: "Highrise Apartment",
     price: "₹1.1 Crore",
     location: "MG Road, Bangalore",
@@ -19,14 +21,16 @@ const featuredListings = [
     baths: 2,
   },
   {
+    id: 3,
     title: "Family Home in Pune",
     price: "₹78 Lakh",
     location: "Viman Nagar, Pune",
     image: "https://images.unsplash.com/photo-1464983953574-0892a716854b",
     beds: 2,
     baths: 2,
-  },
+  }
 ];
+
 
 export default function Home() {
   return (
