@@ -68,7 +68,8 @@ export default function ListingsPage() {
                 </p>
                 <p style={{ color: "#444", fontSize: "0.99rem" }}>{property.desc}</p>
                 <a
-                  href="#"
+  href="/property"
+
                   style={{
                     background: "#3056D3", color: "#fff", borderRadius: "0.65rem",
                     padding: "8px 22px", textDecoration: "none", fontWeight: "bold",
