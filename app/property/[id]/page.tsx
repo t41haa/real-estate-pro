@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { useParams } from "next/navigation"; // Import useParams for Next.js 13+
 
 const properties = [
   {
@@ -37,14 +38,15 @@ const properties = [
   }
 ];
 
-export default function PropertyDetailPage({ id }: { id: number }) {
-  // find property by id
-  const property = properties.find(p => p.id === id);
+export default function PropertyDetailPage() {
+  const params = useParams();
+  const propertyId = parseInt(params.id); // id from URL
+  const property = properties.find(p => p.id === propertyId);
 
   if (!property) {
     return (
-      <main style={{ fontFamily: "Arial, Helvetica, sans-serif", padding: 40 }}>
-        <h2>Property not found</h2>
+      <main style={{ fontFamily: "Arial, Helvetica, sans-serif", padding: 40, background: "#111", color: "#eee", minHeight: "90vh" }}>
+        <h2 style={{ fontSize: "2.3rem", fontWeight: 700 }}>Property not found</h2>
       </main>
     );
   }
@@ -52,21 +54,15 @@ export default function PropertyDetailPage({ id }: { id: number }) {
   return (
     <main style={{ fontFamily: "Arial, Helvetica, sans-serif", background: "#f7f9fc", minHeight: "100vh", padding: 40 }}>
       <section style={{
-        maxWidth: 900,
-        margin: "0 auto",
-        background: "#fff",
-        borderRadius: "1rem",
-        boxShadow: "0 4px 12px rgba(32,64,128,0.13)",
-        padding: 32,
-        display: "flex",
-        gap: 32
+        maxWidth: 900, margin: "0 auto", background: "#fff",
+        borderRadius: "1rem", boxShadow: "0 4px 12px rgba(32,64,128,0.13)",
+        padding: 32, display: "flex", gap: 32
       }}>
         <img
           src={property.image}
           alt={property.title}
           style={{
-            width: "400px", height: "260px", objectFit: "cover",
-            borderRadius: "0.7rem",
+            width: "400px", height: "260px", objectFit: "cover", borderRadius: "0.7rem",
             boxShadow: "0 1px 7px rgba(48,86,211,0.09)"
           }}
         />
@@ -83,15 +79,9 @@ export default function PropertyDetailPage({ id }: { id: number }) {
             {property.desc}
           </p>
           <a href="/contact" style={{
-            display: "inline-block",
-            marginTop: 24,
-            padding: "10px 26px",
-            borderRadius: "0.6rem",
-            backgroundColor: "#3056D3",
-            color: "#fff",
-            fontWeight: "bold",
-            textDecoration: "none",
-            boxShadow: "0 1px 7px rgba(48,86,211,0.12)"
+            display: "inline-block", marginTop: 24, padding: "10px 26px", borderRadius: "0.6rem",
+            backgroundColor: "#3056D3", color: "#fff", fontWeight: "bold",
+            textDecoration: "none", boxShadow: "0 1px 7px rgba(48,86,211,0.12)"
           }}>
             Contact Agent
           </a>
