@@ -2,14 +2,16 @@
 import React from "react";
 
 const featuredListings = [
-  {
+   {
     id: 1,
     title: "Luxury Villa in Mumbai",
     price: "₹2.3 Crore",
     location: "Juhu, Mumbai",
-    image: "https://is1-3.housingcdn.com/01c16c28/1cd938ae2862861c04d70be84e386120/v0/medium/3_bhk_apartment-for-rent-juhu-Mumbai-hall.jpg", // Real room image
+    image: "https://is1-3.housingcdn.com/01c16c28/1cd938ae2862861c04d70be84e386120/v0/medium/3_bhk_apartment-for-rent-juhu-Mumbai-hall.jpg",
     beds: 4,
     baths: 3,
+    area: "5800 sq ft",
+    desc: "Pool, garden, modern design, sea view."
   },
   {
     id: 2,
@@ -19,6 +21,8 @@ const featuredListings = [
     image: "https://images.unsplash.com/photo-1598928506312-5fb6e32ff223?auto=format&fit=crop&w=800&q=80",
     beds: 3,
     baths: 2,
+    area: "2150 sq ft",
+    desc: "Gym, security, city view, parking included."
   },
   {
     id: 3,
@@ -28,7 +32,9 @@ const featuredListings = [
     image: "https://images.unsplash.com/photo-1618221502829-d51a6ec90b0d?auto=format&fit=crop&w=800&q=80",
     beds: 2,
     baths: 2,
-  },
+    area: "1430 sq ft",
+    desc: "Calm neighborhood, nearby schools."
+  }
 ];
 
 export default function Home() {
