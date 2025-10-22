@@ -31,7 +31,6 @@ const featuredListings = [
   }
 ];
 
-
 export default function Home() {
   return (
     <main style={{ fontFamily: "Inter,sans-serif", background: "#F7F9FC", minHeight: "100vh" }}>
@@ -108,6 +107,16 @@ export default function Home() {
                   <span role="img" aria-label="bed">🛏</span> {listing.beds} &nbsp;
                   <span role="img" aria-label="bath">🛁</span> {listing.baths}
                 </p>
+                <a
+                  href={`/property/${listing.id}`}
+                  style={{
+                    background: "#3056D3", color: "#fff", borderRadius: "0.65rem",
+                    padding: "8px 22px", textDecoration: "none", fontWeight: "bold",
+                    display: "inline-block", margin: "18px 0 10px 0"
+                  }}
+                >
+                  View Details
+                </a>
               </div>
             </div>
           ))}
