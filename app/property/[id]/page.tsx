@@ -18,7 +18,7 @@ const propertyListings = [
     title: "Highrise Apartment",
     price: "₹1.1 Crore",
     location: "MG Road, Bangalore",
-    image: "https://images.unsplash.com/photo-1598928506312-5fb6e32ff223?auto=format&fit=crop&w=800&q=80",
+    image: "https://mediacdn.99acres.com/media1/22491/1/449821296M-1696753337707.jpg",
     beds: 3,
     baths: 2,
     area: "2150 sq ft",
