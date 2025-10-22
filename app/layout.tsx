@@ -1,31 +1,44 @@
+"use client";
+import React from "react";
 import "./globals.css";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className="bg-gray-50 text-gray-900 font-sans min-h-screen flex flex-col">
-        <header className="bg-blue-700 text-white shadow-md">
-          <nav className="container mx-auto flex justify-between items-center py-4 px-6 md:px-0">
-            <div className="text-xl font-bold hover:underline cursor-pointer">
-              <a href="/">Real Estate Pro</a>
-            </div>
-            <ul className="flex gap-6 text-lg font-medium">
-              <li><a href="/" className="hover:underline">Home</a></li>
-              <li><a href="/listings" className="hover:underline">Listings</a></li>
-              <li><a href="/contact" className="hover:underline">Contact</a></li>
-            </ul>
-            <div>
-              {/* no user login buttons here - static layout */}
-            </div>
+    <>
+      <header style={{
+        background: "#3056D3",
+        color: "#fff",
+        padding: "18px 0",
+        boxShadow: "0 2px 8px rgba(32,64,128,0.10)",
+        marginBottom: "10px"
+      }}>
+        <div style={{
+          maxWidth: 1100,
+          margin: "0 auto",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center"
+        }}>
+          <div style={{ fontWeight: 800, fontSize: "1.3rem", letterSpacing: ".5px" }}>
+            <a href="/" style={{ color: "#fff" }}>Real Estate Pro</a>
+          </div>
+          <nav>
+            <a href="/" style={{ margin: "0 18px" }}>Home</a>
+            <a href="/listings" style={{ margin: "0 18px" }}>Listings</a>
+            <a href="/contact" style={{ margin: "0 18px" }}>Contact</a>
           </nav>
-        </header>
-        <main className="flex-grow container mx-auto px-6 md:px-0 pt-8">
-          {children}
-        </main>
-        <footer className="bg-gray-100 text-center text-gray-600 py-5 mt-12">
-          &copy; {new Date().getFullYear()} Real Estate Pro &bull; All rights reserved.
-        </footer>
-      </body>
-    </html>
+        </div>
+      </header>
+      <main style={{ minHeight: "80vh" }}>{children}</main>
+      <footer style={{
+        background: "#e8eaf6",
+        textAlign: "center",
+        color: "#777",
+        padding: "20px 0",
+        marginTop: "38px"
+      }}>
+        &copy; {new Date().getFullYear()} Real Estate Pro | All rights reserved.
+      </footer>
+    </>
   );
 }
