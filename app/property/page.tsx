@@ -1,68 +1,98 @@
 "use client";
 import React from "react";
 
-// Dummy property data (for demo: you can link this to real data later)
-const property = {
-  title: "Luxury Villa in Mumbai",
-  price: "₹2.3 Crore",
-  location: "Juhu, Mumbai",
-  image: "https://is1-3.housingcdn.com/01c16c28/1cd938ae2862861c04d70be84e386120/v0/medium/3_bhk_apartment-for-rent-juhu-Mumbai-hall.jpg",
-  beds: 4,
-  baths: 3,
-  area: "5800 sq ft",
-  desc: "This stunning luxury villa offers modern design, a beautiful sea view, an outdoor pool, garden, and close proximity to Juhu Beach. Perfect for family life and entertaining guests.",
-  amenities: [
-    "Private Pool", "Sea View", "Gated Security", "Modern Kitchen", "2-car Garage"
-  ]
-};
+const properties = [
+  {
+    id: 1,
+    title: "Luxury Villa in Mumbai",
+    price: "₹2.3 Crore",
+    location: "Juhu, Mumbai",
+    image: "https://thvnext.bing.com/th/id/OIP.1vpw2ZqIpB5TkRSTCEJ9NQAAAA?w=226&h=180&c=7&r=0&o=7&cb=12&dpr=1.5&pid=1.7&rm=3",
+    beds: 4,
+    baths: 3,
+    area: "5800 sq ft",
+    desc: "Pool, garden, modern design, sea view."
+  },
+  {
+    id: 2,
+    title: "Highrise Apartment",
+    price: "₹1.1 Crore",
+    location: "MG Road, Bangalore",
+    image: "https://mediacdn.99acres.com/media1/22491/1/449821296M-1696753337707.jpg",
+    beds: 3,
+    baths: 2,
+    area: "2150 sq ft",
+    desc: "Gym, security, city view, parking included."
+  },
+  {
+    id: 3,
+    title: "Family Home in Pune",
+    price: "₹78 Lakh",
+    location: "Viman Nagar, Pune",
+    image: "https://images.unsplash.com/photo-1618221502829-d51a6ec90b0d?auto=format&fit=crop&w=800&q=80",
+    beds: 2,
+    baths: 2,
+    area: "1430 sq ft",
+    desc: "Calm neighborhood, nearby schools."
+  }
+];
 
-export default function PropertyDetails() {
+export default function PropertyDetailPage({ id }: { id: number }) {
+  // find property by id
+  const property = properties.find(p => p.id === id);
+
+  if (!property) {
+    return (
+      <main style={{ fontFamily: "Arial, Helvetica, sans-serif", padding: 40 }}>
+        <h2>Property not found</h2>
+      </main>
+    );
+  }
+
   return (
-    <main style={{
-      fontFamily: "Inter,sans-serif", background: "#F8FAFD", minHeight: "100vh"
-    }}>
+    <main style={{ fontFamily: "Arial, Helvetica, sans-serif", background: "#f7f9fc", minHeight: "100vh", padding: 40 }}>
       <section style={{
-        maxWidth: 900, margin: "40px auto 0 auto", background: "#fff", borderRadius: "1.2rem",
-        boxShadow: "0 8px 30px rgba(32,64,128,0.13)", overflow: "hidden"
+        maxWidth: 900,
+        margin: "0 auto",
+        background: "#fff",
+        borderRadius: "1rem",
+        boxShadow: "0 4px 12px rgba(32,64,128,0.13)",
+        padding: 32,
+        display: "flex",
+        gap: 32
       }}>
         <img
           src={property.image}
           alt={property.title}
-          style={{ width: "100%", maxHeight: "330px", objectFit: "cover" }}
+          style={{
+            width: "400px", height: "260px", objectFit: "cover",
+            borderRadius: "0.7rem",
+            boxShadow: "0 1px 7px rgba(48,86,211,0.09)"
+          }}
         />
-        <div style={{ padding: "32px 30px 18px 30px" }}>
-          <h1 style={{ fontSize: "2rem", fontWeight: 700, color: "#3056D3" }}>{property.title}</h1>
-          <p style={{ color: "#3056D3", fontSize: "1.15rem", fontWeight: "bold", marginTop: 4 }}>{property.price}</p>
-          <p style={{ color: "#6d6d6d", fontSize: "1.09rem" }}>{property.location}</p>
-          <div style={{ margin: "18px 0" }}>
-            <span style={{ marginRight: 16 }}>🛏 {property.beds} Beds</span>
-            <span style={{ marginRight: 16 }}>🛁 {property.baths} Bath</span>
-            <span>📐 {property.area}</span>
-          </div>
-          <p style={{ fontSize: "1.09rem", color: "#222", margin: "12px 0 18px 0" }}>{property.desc}</p>
-          <h3 style={{ fontSize: "1.09rem", fontWeight: 600, margin: "18px 0 8px 0", color: "#333" }}>Amenities:</h3>
-          <ul style={{ display: "flex", flexWrap: "wrap", padding: 0, listStyle: "none", gap: "13px" }}>
-            {property.amenities.map((a, i) => (
-              <li key={i}
-                style={{
-                  background: "#eef3fa",
-                  color: "#3056D3",
-                  borderRadius: "7px",
-                  padding: "7px 17px",
-                  fontSize: "0.98rem"
-                }}>
-                {a}
-              </li>
-            ))}
-          </ul>
-          <a
-            href="/contact"
-            style={{
-              background: "#3056D3", color: "#fff", borderRadius: "0.7rem",
-              padding: "12px 32px", textDecoration: "none",
-              fontWeight: "bold", fontSize: "1.05rem", display: "inline-block", marginTop: 26
-            }}
-          >
+        <div>
+          <h1 style={{ fontSize: "2rem", fontWeight: 800, marginBottom: 8, color: "#3056D3" }}>
+            {property.title}
+          </h1>
+          <p style={{ fontWeight: "bold", fontSize: "1.15rem", color: "#3056D3" }}>{property.price}</p>
+          <p style={{ fontSize: "1rem", color: "#444", marginTop: 16 }}>{property.location}</p>
+          <p style={{ fontSize: "1.05rem", color: "#232323", marginTop: 12 }}>
+            Bedrooms: {property.beds} | Bathrooms: {property.baths} | Area: {property.area}
+          </p>
+          <p style={{ fontSize: "1rem", marginTop: 16, lineHeight: 1.45 }}>
+            {property.desc}
+          </p>
+          <a href="/contact" style={{
+            display: "inline-block",
+            marginTop: 24,
+            padding: "10px 26px",
+            borderRadius: "0.6rem",
+            backgroundColor: "#3056D3",
+            color: "#fff",
+            fontWeight: "bold",
+            textDecoration: "none",
+            boxShadow: "0 1px 7px rgba(48,86,211,0.12)"
+          }}>
             Contact Agent
           </a>
         </div>
