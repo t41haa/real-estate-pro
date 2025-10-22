@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { useParams } from "next/navigation"; // Import useParams for Next.js 13+
+import { useParams } from "next/navigation";
 
 const properties = [
   {
@@ -40,7 +40,8 @@ const properties = [
 
 export default function PropertyDetailPage() {
   const params = useParams();
-  const propertyId = parseInt(params.id); // id from URL
+  // Fix: check if params.id is defined and a string
+  const propertyId = params.id ? parseInt(params.id as string, 10) : NaN;
   const property = properties.find(p => p.id === propertyId);
 
   if (!property) {
