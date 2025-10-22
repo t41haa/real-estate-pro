@@ -1,20 +1,47 @@
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+"use client";
+import React, { useState } from "react";
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const [user, setUser] = useState(false); // Mock user login state
+
   return (
-    <html lang="en">
-      <body>
-        <header style={{
-          background: "#3056D3", color: "#fff", padding: "15px 0",
-          textAlign: "center", fontWeight: 600, letterSpacing: 0.3
-        }}>
-          <nav>
-            <a href="/" style={{ color: "#fff", margin: "0 26px", textDecoration: "none" }}>Home</a>
-            <a href="/listings" style={{ color: "#fff", margin: "0 26px", textDecoration: "none" }}>Listings</a>
-            <a href="/contact" style={{ color: "#fff", margin: "0 26px", textDecoration: "none" }}>Contact</a>
+    <html lang="en" className="scroll-smooth">
+      <body className="bg-gray-50 text-gray-900 font-sans min-h-screen flex flex-col">
+        <header className="bg-blue-700 text-white shadow-md">
+          <nav className="container mx-auto flex justify-between items-center py-4 px-6 md:px-0">
+            <div className="text-xl font-bold hover:underline cursor-pointer">
+              <a href="/">Real Estate Pro</a>
+            </div>
+            <ul className="flex gap-6 text-lg font-medium">
+              <li><a href="/" className="hover:underline">Home</a></li>
+              <li><a href="/listings" className="hover:underline">Listings</a></li>
+              <li><a href="/contact" className="hover:underline">Contact</a></li>
+            </ul>
+            <div>
+              {user ? (
+                <button
+                  onClick={() => setUser(false)}
+                  className="bg-blue-800 px-4 py-1 rounded hover:bg-blue-600 transition"
+                >
+                  Logout
+                </button>
+              ) : (
+                <button
+                  onClick={() => setUser(true)}
+                  className="bg-blue-800 px-4 py-1 rounded hover:bg-blue-600 transition"
+                >
+                  Login
+                </button>
+              )}
+            </div>
           </nav>
         </header>
-        {children}
+        <main className="flex-grow container mx-auto px-6 md:px-0 pt-8">
+          {children}
+        </main>
+        <footer className="bg-gray-100 text-center text-gray-600 py-5 mt-12">
+          &copy; {new Date().getFullYear()} Real Estate Pro &bull; All rights reserved.
+        </footer>
       </body>
     </html>
   );

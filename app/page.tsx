@@ -28,92 +28,56 @@ const featuredListings = [
     image: "https://images.unsplash.com/photo-1464983953574-0892a716854b",
     beds: 2,
     baths: 2,
-  }
+  },
 ];
 
 export default function Home() {
   return (
-    <main style={{ fontFamily: "Inter,sans-serif", background: "#F7F9FC", minHeight: "100vh" }}>
+    <main className="bg-gray-50 min-h-screen font-sans">
       {/* HERO SECTION */}
-      <section style={{
-        background: "linear-gradient(90deg, #3056D3 60%, #fff 100%)",
-        color: "#fff", padding: "48px 0 36px 0",
-      }}>
-        <div style={{
-          maxWidth: "900px", margin: "0 auto", display: "flex",
-          flexDirection: "column", alignItems: "center"
-        }}>
-          <h1 style={{ fontSize: "2.5rem", fontWeight: 800, marginBottom: 12 }}>
-            Find Your Dream Property
-          </h1>
-          <p style={{ fontSize: "1.2rem", marginBottom: 36, maxWidth: 540 }}>
-            List, browse, and search for homes, apartments, and commercial spaces across India. 
-            Discover premium listings and connect with agents instantly.
+      <section className="bg-gradient-to-r from-blue-700 to-white text-white py-12">
+        <div className="max-w-4xl mx-auto flex flex-col items-center px-4">
+          <h1 className="text-5xl font-extrabold mb-4">Find Your Dream Property</h1>
+          <p className="max-w-xl text-lg mb-8 text-center">
+            List, browse, and search for homes, apartments, and commercial spaces across India. Discover premium listings and connect with agents instantly.
           </p>
-          <form style={{
-            background: "#fff", padding: "14px 18px", borderRadius: "1rem",
-            display: "flex", gap: 8, minWidth: 370,
-            boxShadow: "0 4px 16px rgba(0,32,128,0.12)"
-          }}>
+          <form className="flex w-full max-w-md bg-white rounded-lg shadow-md overflow-hidden">
             <input
               type="text"
               placeholder="Search by city, locality, or landmark"
-              style={{
-                flex: 1, padding: "11px", border: "none", fontSize: "1rem",
-                borderRadius: "0.5rem"
-              }}
+              className="flex-grow px-4 py-2 text-gray-900 outline-none"
             />
-            <button type="submit"
-              style={{
-                background: "#3056D3", color: "#fff", fontWeight: "bold",
-                border: "none", padding: "10px 22px", borderRadius: "0.5rem",
-                cursor: "pointer"
-              }}
-            >Search</button>
+            <button
+              type="submit"
+              className="bg-blue-700 px-6 text-white font-semibold hover:bg-blue-600 transition"
+            >
+              Search
+            </button>
           </form>
         </div>
       </section>
 
       {/* FEATURED LISTINGS */}
-      <section style={{ maxWidth: 1100, margin: "36px auto", padding: "24px 0" }}>
-        <h2 style={{
-          fontSize: "1.65rem", fontWeight: 700, marginBottom: "24px", textAlign: "center",
-          color: "#232323"
-        }}>Featured Listings</h2>
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
-          gap: "34px",
-        }}>
-          {featuredListings.map((listing, idx) => (
-            <div key={idx} style={{
-              background: "#fff", borderRadius: "1.1rem",
-              boxShadow: "0 6px 25px rgba(0,32,128,0.16)", overflow: "hidden"
-            }}>
+      <section className="max-w-7xl mx-auto py-12 px-4">
+        <h2 className="text-3xl font-bold text-center text-gray-900 mb-10">Featured Listings</h2>
+        <div className="grid gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+          {featuredListings.map((listing) => (
+            <div key={listing.id} className="bg-white rounded-lg shadow-lg flex flex-col overflow-hidden">
               <img
                 src={listing.image}
                 alt={listing.title}
-                style={{ width: "100%", height: "210px", objectFit: "cover" }}
+                className="h-52 w-full object-cover"
               />
-              <div style={{ padding: "16px 18px 9px 18px" }}>
-                <h3 style={{ fontSize: "1.19rem", fontWeight: 600, margin: "0 0 4px 0" }}>
-                  {listing.title}
-                </h3>
-                <p style={{ color: "#3056D3", fontWeight: "bold", fontSize: "1rem" }}>{listing.price}</p>
-                <p style={{ fontSize: "0.98rem", color: "#606060", margin: "8px 0" }}>
-                  {listing.location}
-                </p>
-                <p style={{ fontSize: "0.95rem", color: "#232323", margin: 0 }}>
-                  <span role="img" aria-label="bed">🛏</span> {listing.beds} &nbsp;
-                  <span role="img" aria-label="bath">🛁</span> {listing.baths}
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-xl font-semibold text-blue-700">{listing.title}</h3>
+                <p className="text-blue-600 font-bold mt-1">{listing.price}</p>
+                <p className="text-gray-600 mt-2">{listing.location}</p>
+                <p className="mt-4 text-gray-800">
+                  Bedrooms: <span className="font-semibold">{listing.beds}</span> | Bathrooms: <span className="font-semibold">{listing.baths}</span>
                 </p>
                 <a
                   href={`/property/${listing.id}`}
-                  style={{
-                    background: "#3056D3", color: "#fff", borderRadius: "0.65rem",
-                    padding: "8px 22px", textDecoration: "none", fontWeight: "bold",
-                    display: "inline-block", margin: "18px 0 10px 0"
-                  }}
+                  className="mt-auto inline-block bg-blue-700 text-white py-2 px-5 rounded hover:bg-blue-600 transition text-center font-semibold"
                 >
                   View Details
                 </a>
@@ -124,18 +88,15 @@ export default function Home() {
       </section>
 
       {/* AGENT / CONTACT SECTION */}
-      <section style={{ background: "#fff", padding: "32px 0", borderTop: "1px solid #e6e6e6" }}>
-        <div style={{ maxWidth: "800px", margin: "0 auto", textAlign: "center" }}>
-          <h3 style={{ fontSize: "1.2rem", fontWeight: "bold", marginBottom: 8 }}>Are you an agent?</h3>
-          <p style={{ color: "#4d4d4d", marginBottom: 18 }}>
+      <section className="bg-white py-12 border-t border-gray-200">
+        <div className="max-w-3xl mx-auto text-center px-4">
+          <h3 className="text-2xl font-bold mb-3">Are you an agent?</h3>
+          <p className="text-gray-700 mb-6">
             Register and list your properties or reach targeted buyers in seconds.
           </p>
           <a
             href="/contact"
-            style={{
-              background: "#3056D3", color: "#fff", borderRadius: "0.7rem",
-              padding: "11px 26px", textDecoration: "none", fontWeight: "bold", fontSize: "1.04rem"
-            }}
+            className="inline-block bg-blue-700 text-white py-3 px-8 rounded hover:bg-blue-600 font-semibold transition"
           >
             Become an Agent
           </a>
@@ -143,7 +104,7 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer style={{ padding: "26px 0 18px 0", textAlign: "center", color: "#777" }}>
+      <footer className="py-6 text-center text-gray-600 border-t border-gray-300 mt-12">
         &copy; {new Date().getFullYear()} My Real Estate Platform &nbsp;|&nbsp; All rights reserved.
       </footer>
     </main>
