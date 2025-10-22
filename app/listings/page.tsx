@@ -3,6 +3,7 @@ import React from "react";
 
 const propertyListings = [
   {
+    id: 1,
     title: "Luxury Villa in Mumbai",
     price: "₹2.3 Crore",
     location: "Juhu, Mumbai",
@@ -10,9 +11,10 @@ const propertyListings = [
     beds: 4,
     baths: 3,
     area: "5800 sq ft",
-    desc: "Pool, garden, modern design, sea view.",
+    desc: "Pool, garden, modern design, sea view."
   },
   {
+    id: 2,
     title: "Highrise Apartment",
     price: "₹1.1 Crore",
     location: "MG Road, Bangalore",
@@ -20,9 +22,10 @@ const propertyListings = [
     beds: 3,
     baths: 2,
     area: "2150 sq ft",
-    desc: "Gym, security, city view, parking included.",
+    desc: "Gym, security, city view, parking included."
   },
   {
+    id: 3,
     title: "Family Home in Pune",
     price: "₹78 Lakh",
     location: "Viman Nagar, Pune",
@@ -30,7 +33,7 @@ const propertyListings = [
     beds: 2,
     baths: 2,
     area: "1430 sq ft",
-    desc: "Calm neighborhood, nearby schools.",
+    desc: "Calm neighborhood, nearby schools."
   }
 ];
 
@@ -68,8 +71,7 @@ export default function ListingsPage() {
                 </p>
                 <p style={{ color: "#444", fontSize: "0.99rem" }}>{property.desc}</p>
                 <a
-  href="/property"
-
+                  href={`/property/${property.id}`}
                   style={{
                     background: "#3056D3", color: "#fff", borderRadius: "0.65rem",
                     padding: "8px 22px", textDecoration: "none", fontWeight: "bold",
