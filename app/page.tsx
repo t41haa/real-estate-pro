@@ -101,9 +101,15 @@ export default function Home() {
                 style={{ width: "100%", height: "210px", objectFit: "cover" }}
               />
               <div style={{ padding: "16px 18px 9px 18px" }}>
-                <h3 style={{ fontSize: "1.19rem", fontWeight: 600, margin: "0 0 4px 0" }}>
-                  {listing.title}
-                </h3>
+               <h3 style={{
+  fontSize: "1.19rem",
+  fontWeight: 600,
+  margin: "0 0 4px 0",
+  color: "#111"
+}}>
+  {listing.title}
+</h3>
+
                 <p style={{ color: "#3056D3", fontWeight: "bold", fontSize: "1rem" }}>{listing.price}</p>
                 <p style={{ fontSize: "0.98rem", color: "#606060", margin: "8px 0" }}>
                   {listing.location}
