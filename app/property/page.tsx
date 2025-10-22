@@ -29,7 +29,7 @@ const properties = [
     title: "Family Home in Pune",
     price: "₹78 Lakh",
     location: "Viman Nagar, Pune",
-    image: "https://images.unsplash.com/photo-1618221502829-d51a6ec90b0d?auto=format&fit=crop&w=800&q=80",
+    image: "https://is1-2.housingcdn.com/01c16c28/ea4e6aa18e415e0a35ad6270e77f67c4/v0/medium/3_bhk_apartment-for-rent-juhu-Mumbai-hall.jpg",
     beds: 2,
     baths: 2,
     area: "1430 sq ft",
